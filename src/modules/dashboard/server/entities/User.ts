@@ -1,8 +1,8 @@
+import {User} from '@/shared/dto/User'
 import {getRandomID, getRandomUsername} from '@/shared/helpers/randomizer'
+import {faker} from '@faker-js/faker/locale/en'
 import {random} from 'lodash'
 import moment from 'moment'
-import {faker} from '@faker-js/faker/locale/en'
-import {User} from '@/shared/dto/User'
 
 export const UserEntity = (data: Partial<User> = {}): User => {
    return {

@@ -1,6 +1,6 @@
+import {TransferEntity} from '@/dashboard/server/entities/Transfer'
 import {Transfer} from '@/shared/dto/Transfer'
 import {factory} from '@/shared/helpers/randomizer'
-import {TransferEntity} from '@/dashboard/server/entities/Transfer'
 import {fetchData} from '@/shared/helpers/simulator'
 
 export class TransfersService {
@@ -21,12 +21,15 @@ export class TransfersService {
 
    // Get the most recent transfer
    public async getMostRecent(): Promise<Transfer> {
-      return fetchData(this.transfers.reduce((latest, current) =>
-         current.eventAt > latest.eventAt ? current : latest
-      ), {
-         minMs: 100,
-         maxMs: 400,
-         failureProbability: 0
-      })
+      return fetchData(
+         this.transfers.reduce((latest, current) =>
+            current.eventAt > latest.eventAt ? current : latest
+         ),
+         {
+            minMs: 100,
+            maxMs: 400,
+            failureProbability: 0
+         }
+      )
    }
 }

@@ -29,8 +29,8 @@ export class FundsService {
    // List of all the funds we offer
    public async list() {
       return fetchData(this.funds, {
-         minMs: 200,
-         maxMs: 400,
+         minMs: 1000,
+         maxMs: 2000,
          failureProbability: 0
       })
    }

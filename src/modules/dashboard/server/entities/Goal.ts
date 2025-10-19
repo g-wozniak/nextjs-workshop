@@ -25,7 +25,7 @@ export const GoalEntity = (data: Partial<Goal> = {}): Goal => {
       target,
       progress,
       achieved,
-      achievedPercent: (progress * 100 / target).toFixed(0),
+      achievedPercent: ((progress * 100) / target).toFixed(0),
       achievedAt: achieved ? moment().subtract(random(1, 5), 'days').toDate() : undefined
    }
 }

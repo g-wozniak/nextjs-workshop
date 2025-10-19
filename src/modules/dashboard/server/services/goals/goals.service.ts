@@ -1,10 +1,9 @@
+import {GoalEntity} from '@/dashboard/server/entities/Goal'
 import {Goal} from '@/shared/dto/Goal'
 import {factory} from '@/shared/helpers/randomizer'
-import {GoalEntity} from '@/dashboard/server/entities/Goal'
 import {fetchData} from '@/shared/helpers/simulator'
 
 export class GoalsService {
-
    private readonly goals: Goal[]
 
    constructor() {

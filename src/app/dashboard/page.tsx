@@ -1,29 +1,25 @@
 'use server'
 
-import {FundsService} from '@/dashboard/server/services/funds/funds.service'
+import {FundsSection} from '@/dashboard/server/components/Funds'
 import {Container} from '@/shared/components/Container'
 import {Masthead} from '@/shared/components/Masthead'
+import {Spin} from 'antd'
 import {Row} from 'antd/lib/grid'
+import {Suspense} from 'react'
 import styles from './page.module.scss'
+import User from '@/dashboard/client/components/user/User'
 
 export default async function DashboardPage() {
-   const fundService = new FundsService()
-   const funds = await fundService.list()
-   const performance = await fundService.listPerformance()
    return (
       <div className={styles.page}>
          <Masthead title="ISA dashboard" />
          <Container>
             <Row>
-               {funds.map((f) => (
-                  <div>{JSON.stringify(f)}</div>
-               ))}
+               <Suspense fallback={<Spin fullscreen={true} />}>
+                  <FundsSection />
+               </Suspense>
             </Row>
-            <Row>
-               {performance.map((p) => (
-                  <div>{JSON.stringify(p)}</div>
-               ))}
-            </Row>
+            <User/>
          </Container>
       </div>
    )

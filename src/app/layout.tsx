@@ -1,12 +1,12 @@
 import '@/shared/styles/antd.scss'
 import '@/shared/styles/globals.scss'
-import {AntdRegistry} from '@ant-design/nextjs-registry'
-import {App, ConfigProvider} from 'antd'
 import type {Metadata, Viewport} from 'next'
 
 import {MainLayout} from '@/modules/dashboard/client/layouts/Main'
 import {cushonPrimaryFont} from '@/modules/shared/fonts'
-import {CSSProperties} from 'react'
+import {QueryErrorResetBoundary} from '@tanstack/react-query'
+import DesignSystemProvider from '@/shared/serviceProviders/DesignSystemProvider'
+import {ReactQueryProvider} from '@/shared/serviceProviders/ReactQueryProvider'
 
 export const metadata: Metadata = {
    title: 'NatWest Cushon',
@@ -20,12 +20,6 @@ export const viewport: Viewport = {
    userScalable: false
 }
 
-const appCss: CSSProperties = {
-   display: 'flex',
-   flexDirection: 'column',
-   height: '100%'
-}
-
 export default function RootLayout({
    children
 }: Readonly<{
@@ -34,13 +28,13 @@ export default function RootLayout({
    return (
       <html lang="en" className={`${cushonPrimaryFont.variable}`}>
          <body>
-            <AntdRegistry>
-               <ConfigProvider>
-                  <App style={appCss}>
+            <ReactQueryProvider>
+               <DesignSystemProvider>
+                  <QueryErrorResetBoundary>
                      <MainLayout>{children}</MainLayout>
-                  </App>
-               </ConfigProvider>
-            </AntdRegistry>
+                  </QueryErrorResetBoundary>
+               </DesignSystemProvider>
+            </ReactQueryProvider>
          </body>
       </html>
    )

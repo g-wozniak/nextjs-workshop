@@ -19,7 +19,7 @@ export const fetchData = async <T>(
    return new Promise<T>((resolve, reject) => {
       setTimeout(() => {
          if (isFailure) {
-            reject(new Error('Simulated network failure'))
+            reject(new Error('Unable to return data. Something went wrong.'))
          } else {
             resolve(data)
          }
