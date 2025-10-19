@@ -1,0 +1,22 @@
+{
+   "name": "Cushon ISA App",
+   "short_name": "Cushon ISA",
+   "description": "Invest in a Cushon ISA with ease and clarity.",
+   "start_url": "/",
+   "display": "standalone",
+   "background_color": "#ffffff",
+   "theme_color": "#ff3596",
+   "lang": "en-GB",
+   "icons": [
+      {
+         "src": "/icons/icon-192.png",
+         "sizes": "192x192",
+         "type": "image/png"
+      },
+      {
+         "src": "/icons/icon-512.png",
+         "sizes": "512x512",
+         "type": "image/png"
+      }
+   ]
+}

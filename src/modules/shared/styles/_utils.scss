@@ -1,0 +1,18 @@
+@use 'sass:color';
+
+/// Generates hover/focus/active variants from a base color
+/// @param {Color} $color - The base color
+/// @param {String} $type - 'hover', 'active', or 'focus'
+@function variant($color, $type) {
+   @if $type == 'hover' {
+      @return color.adjust($color, $lightness: -20%);
+   } @else if $type == 'active' {
+      @return color.adjust($color, $lightness: -10%);
+   } @else if $type == 'focus' {
+      @return color.adjust($color, $lightness: +10%);
+   } @else if $type == '200' {
+      @return color.adjust($color, $lightness: +40%);
+   } @else {
+      @error "Unknown variant type `#{$type}`";
+   }
+}

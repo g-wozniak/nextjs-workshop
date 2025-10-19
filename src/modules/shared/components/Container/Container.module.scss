@@ -1,0 +1,65 @@
+@use "@/modules/shared/styles/media" as media;
+
+.container {
+   position: relative;
+   padding-right: 15px;
+   padding-left: 15px;
+   display: flex;
+   flex-direction: column;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+@media (min-width: media.breakpoint(xs)) {
+   .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      width: media.container(xs);
+      .left {
+         max-width: media.breakpoint(xs);
+      }
+   }
+}
+
+@media (min-width: media.breakpoint(sm)) {
+   .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      width: media.container(sm);
+      max-width: 100%;
+      .left {
+         max-width: media.breakpoint(sm);
+      }
+   }
+}
+
+@media (min-width: media.breakpoint(md)) {
+   .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      width: media.container(md);
+      max-width: 100%;
+      .left {
+         max-width: media.breakpoint(md);
+      }
+   }
+}
+
+@media (min-width: media.breakpoint(lg)) {
+   .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      width: media.container(lg);
+      max-width: 100%;
+      .left {
+         max-width: media.breakpoint(lg);
+      }
+   }
+}
+
+@media (min-width: media.breakpoint(xl)) {
+   .container {
+      width: media.container(xl);
+      max-width: 100%;
+   }
+}

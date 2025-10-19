@@ -1,0 +1,80 @@
+/// This is just a temporary, manual theme setup
+
+body {
+   .ant-btn {
+      font-family: var(--font-primary), sans-serif;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      border-radius: 0;
+
+      &-default {
+         &:hover,
+         &:focus,
+         &:active {
+            border-color: transparent !important;
+            color: var(--cushon-white) !important;
+         }
+
+         &:hover {
+            background: var(--cushon-secondary-hover) !important;
+         }
+         &:focus {
+            background: var(--cushon-secondary-focus) !important;
+         }
+         &:active {
+            background: var(--cushon-secondary-active) !important;
+         }
+      }
+
+      &-variant-solid {
+         background: var(--cushon-active);
+         color: var(--cushon-white);
+         font-weight: 700;
+
+         &:hover {
+            background: var(--cushon-active-hover) !important;
+         }
+         &:focus {
+            background: var(--cushon-active-focus) !important;
+         }
+         &:active {
+            background: var(--cushon-active-active) !important;
+         }
+      }
+   }
+
+   .ant-select {
+      font-family: var(--font-primary), sans-serif;
+      height: 40px !important;
+      &:focus {
+         border: 2px solid var(--cushon-active) !important;
+      }
+      &-selector {
+         font-size: 1.1em !important;
+         border: 2px solid #ddd !important;
+         border-radius: 0 !important;
+      }
+   }
+
+   .ant-input-number-affix-wrapper {
+      height: 40px !important;
+      border: 2px solid #ddd !important;
+      border-radius: 0 !important;
+   }
+
+   .ant-input-number-input {
+      font-family: var(--font-primary), sans-serif !important;
+      font-size: 1.2em !important;
+   }
+
+   .ant-form-item-explain-error {
+      line-height: 110%;
+      white-space: nowrap;
+      font-size: 0.9em;
+      margin-top: 0.25rem;
+   }
+
+   .ant-form-item {
+      margin-bottom: 0;
+   }
+}

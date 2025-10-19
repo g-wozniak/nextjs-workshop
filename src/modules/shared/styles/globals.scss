@@ -1,0 +1,51 @@
+@use './colors';
+@use './utils';
+
+:root {
+   --cushon-white: #{colors.$white};
+   --cushon-base: #{colors.$base};
+   --cushon-base-200: #{utils.variant(colors.$base, '200')};
+   --cushon-active: #{colors.$active};
+   --cushon-active-hover: #{utils.variant(colors.$active, 'hover')};
+   --cushon-active-active: #{utils.variant(colors.$active, 'active')};
+   --cushon-active-focus: #{utils.variant(colors.$active, 'focus')};
+   --cushon-secondary: #{colors.$secondary};
+   --cushon-secondary-hover: #{utils.variant(colors.$secondary, 'hover')};
+   --cushon-secondary-active: #{utils.variant(colors.$secondary, 'active')};
+   --cushon-secondary-focus: #{utils.variant(colors.$secondary, 'focus')};
+
+   /*noinspection CssUnresolvedCustomProperty*/
+   font-family: var(--font-primary), sans-serif;
+}
+
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+body,
+html {
+   width: 100%;
+   height: 100%;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+   font-size: 2.2em;
+}
+
+/// Accessibility support classes
+
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   white-space: nowrap;
+   border: 0;
+}
