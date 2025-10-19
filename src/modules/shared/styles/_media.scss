@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 
 $breakpoints: (
    xs: 476px,
@@ -36,4 +36,3 @@ $containers: (
       @warn "Breakpoint #{$size} not found in $breakpoints map.";
    }
 }
-

@@ -1,5 +1,5 @@
-import styles from './Footer.module.scss'
 import {Container} from '@/shared/components/Container'
+import styles from './Footer.module.scss'
 
 export default function Footer() {
    return (

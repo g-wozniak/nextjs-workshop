@@ -1,7 +1,7 @@
 'use client'
 
-import styles from './Masthead.module.scss'
 import {Container} from '@/shared/components/Container'
+import styles from './Masthead.module.scss'
 
 type Props = {
    title: string

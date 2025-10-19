@@ -1,7 +1,7 @@
 import {PropsWithChildren} from 'react'
-import styles from './MainLayout.module.scss'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
+import styles from './MainLayout.module.scss'
 
 export function MainLayout({children}: PropsWithChildren) {
    return (

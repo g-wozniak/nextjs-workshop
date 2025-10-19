@@ -4,9 +4,9 @@ import {AntdRegistry} from '@ant-design/nextjs-registry'
 import {App, ConfigProvider} from 'antd'
 import type {Metadata, Viewport} from 'next'
 
-import {MainLayout} from '@/modules/dashboard/layouts/Main'
-import {CSSProperties} from 'react'
+import {MainLayout} from '@/modules/dashboard/client/layouts/Main'
 import {cushonPrimaryFont} from '@/modules/shared/fonts'
+import {CSSProperties} from 'react'
 
 export const metadata: Metadata = {
    title: 'NatWest Cushon',
@@ -27,21 +27,21 @@ const appCss: CSSProperties = {
 }
 
 export default function RootLayout({
-                                      children
-                                   }: Readonly<{
+   children
+}: Readonly<{
    children: React.ReactNode
 }>) {
    return (
       <html lang="en" className={`${cushonPrimaryFont.variable}`}>
-      <body>
-      <AntdRegistry>
-         <ConfigProvider>
-            <App style={appCss}>
-               <MainLayout>{children}</MainLayout>
-            </App>
-         </ConfigProvider>
-      </AntdRegistry>
-      </body>
+         <body>
+            <AntdRegistry>
+               <ConfigProvider>
+                  <App style={appCss}>
+                     <MainLayout>{children}</MainLayout>
+                  </App>
+               </ConfigProvider>
+            </AntdRegistry>
+         </body>
       </html>
    )
 }
