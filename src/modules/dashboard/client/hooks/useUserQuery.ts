@@ -1,14 +1,11 @@
-import { useDesignLibrary } from "@/modules/shared/hooks/useDesignLibrary"
-import { useQuery } from "@tanstack/react-query"
-import {clientFetch, notify, notifyOnError} from '@/shared/lib/fetch'
+import {useDesignLibrary} from '@/modules/shared/hooks/useDesignLibrary'
 import {User} from '@/shared/dto/User'
+import {clientFetch, notify, notifyOnError} from '@/shared/lib/fetch'
+import {useQuery} from '@tanstack/react-query'
 
-export const GetUserRequest = async (
-   args?: any
-) => {
+export const GetUserRequest = async (args?: any) => {
    return clientFetch<User>('api/user', 'GET', {})
 }
-
 
 export function useUserQuery() {
    const {notification} = useDesignLibrary()
@@ -26,9 +23,7 @@ export function useUserQuery() {
                notify(notification, res)
                return res.payload.data || {}
             })
-            .catch((err: unknown) =>
-               notifyOnError(notification, err as Error)
-            )
+            .catch((err: unknown) => notifyOnError(notification, err as Error))
       }
    })
 }

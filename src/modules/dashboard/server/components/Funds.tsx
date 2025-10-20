@@ -1,7 +1,9 @@
 'use server'
 
 import {FundsService} from '@/dashboard/server/services/funds/funds.service'
+import {User} from '@/shared/dto/User'
 import {call} from '@/shared/lib/call'
+import {serverFetch} from '@/shared/lib/fetch'
 import {cache} from 'react'
 
 const getCachedFunds = cache(async () => {
@@ -11,6 +13,7 @@ const getCachedFunds = cache(async () => {
 
 export async function FundsSection() {
    const [funds, error] = await getCachedFunds()
+   const [user, error2] = await serverFetch<User>('/api/user')
 
    if (error) {
       return <p>{error.message}</p>
@@ -25,6 +28,7 @@ export async function FundsSection() {
          {funds.map((f) => (
             <div key={f.id}>{JSON.stringify(f)}</div>
          ))}
+         <h1>{JSON.stringify(error2)}</h1>
       </>
    )
 }

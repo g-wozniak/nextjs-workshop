@@ -8,7 +8,6 @@ const appCss: CSSProperties = {
    height: '100%'
 }
 
-
 const DesignSystemProvider = ({children}: PropsWithChildren) => {
    return (
       <AntdRegistry>

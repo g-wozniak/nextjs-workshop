@@ -1,5 +1,5 @@
-import {NotificationInstance} from 'antd/lib/notification/interface'
 import {ApiResponse} from '@/shared/types'
+import {NotificationInstance} from 'antd/lib/notification/interface'
 
 type RequestMethods = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
@@ -50,6 +50,7 @@ export function notify(
          description: successText
       })
    } else if (res.status !== 200) {
+      console.log(res.payload)
       notification.error({
          message: 'Error',
          ...('message' in res.payload && {description: res.payload.message})

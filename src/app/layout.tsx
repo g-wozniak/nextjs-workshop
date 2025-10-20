@@ -4,9 +4,9 @@ import type {Metadata, Viewport} from 'next'
 
 import {MainLayout} from '@/modules/dashboard/client/layouts/Main'
 import {cushonPrimaryFont} from '@/modules/shared/fonts'
-import {QueryErrorResetBoundary} from '@tanstack/react-query'
 import DesignSystemProvider from '@/shared/serviceProviders/DesignSystemProvider'
 import {ReactQueryProvider} from '@/shared/serviceProviders/ReactQueryProvider'
+import {QueryErrorResetBoundary} from '@tanstack/react-query'
 
 export const metadata: Metadata = {
    title: 'NatWest Cushon',
