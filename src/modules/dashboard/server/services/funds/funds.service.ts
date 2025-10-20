@@ -56,7 +56,7 @@ export class FundsService {
    // Get the most recent performance data of the funds
    // Data changes randomly, whenever recalculated by external process
    public async getMostRecentPerformance() {
-      let mostRecentRecords: FundPerformance[] = []
+      const mostRecentRecords: FundPerformance[] = []
       const grouped = groupBy(this.performance, 'fundId')
       Object.keys(grouped).forEach((fundId) => {
          const list = grouped[fundId].sort((a, b) => {
