@@ -3,7 +3,7 @@ import {User} from '@/shared/dto/User'
 import {clientFetch, notify, notifyOnError} from '@/shared/lib/fetch'
 import {useQuery} from '@tanstack/react-query'
 
-export const GetUserRequest = async (args?: any) => {
+export const GetUserRequest = async (_args?: any) => {
    return clientFetch<User>('api/user', 'GET', {})
 }
 

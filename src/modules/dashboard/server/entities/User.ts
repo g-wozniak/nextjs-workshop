@@ -10,6 +10,7 @@ export const UserEntity = (data: Partial<User> = {}): User => {
       username: getRandomUsername(),
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
-      createdAt: moment().subtract(random(1, 6), 'months').toDate()
+      createdAt: moment().subtract(random(1, 6), 'months').toDate(),
+      ...data
    }
 }

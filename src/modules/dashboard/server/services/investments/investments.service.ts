@@ -25,16 +25,15 @@ export class InvestmentsService {
    // Get the list of most recent user investments into funds
    // Data changes every several seconds
    public async listMostRecent(quantity: number = 30): Promise<Investment[]> {
-      return fetchData(
-         this.investments
-            .toSorted((a, b) => b.investedAt.getTime() - a.investedAt.getTime())
-            .slice(0, quantity),
-         {
-            minMs: 100,
-            maxMs: 400,
-            failureProbability: 0
-         }
-      )
+      const investments = this.investments
+         .toSorted((a, b) => b.investedAt.getTime() - a.investedAt.getTime())
+         .slice(0, quantity)
+
+      return fetchData(investments, {
+         minMs: 100,
+         maxMs: 400,
+         failureProbability: 0
+      })
    }
 
    // Get the most recent single investment
@@ -57,9 +56,13 @@ export class InvestmentsService {
       InvestmentEntity: (data?: Partial<Investment>) => Investment
    ): Investment[] => {
       const totalFunds = fundsList.length
-      const minFunds = Math.floor(totalFunds / 2)
+      const minFunds = Math.floor(totalFunds / 3)
       const numFunds = faker.number.int({min: minFunds, max: totalFunds})
       const selectedFunds = sampleSize(fundsList, numFunds)
-      return selectedFunds.flatMap((fund) => [1, 2].map(() => InvestmentEntity({fundId: fund.id})))
+      return selectedFunds.flatMap((fund) =>
+         [1, 2].map(() => {
+            return InvestmentEntity({fundId: fund.id})
+         })
+      )
    }
 }

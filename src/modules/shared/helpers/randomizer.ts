@@ -2,7 +2,7 @@ import {faker} from '@faker-js/faker/locale/en'
 import {random} from 'lodash'
 
 export const getRandomID = () => {
-   return random(10000, 1000000).toString(16)
+   return faker.string.uuid()
 }
 
 export const getRandomUsername = () => {

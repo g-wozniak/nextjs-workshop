@@ -7,12 +7,12 @@ export class TransfersService {
    public readonly transfers: Transfer[]
 
    constructor() {
-      this.transfers = factory(10000, TransferEntity)
+      this.transfers = factory(1000, TransferEntity)
    }
 
    // List all transfers made today
-   public async list(): Promise<Transfer[]> {
-      return fetchData(this.transfers, {
+   public async list(quantity: number): Promise<Transfer[]> {
+      return fetchData(this.transfers.slice(0, quantity), {
          minMs: 100,
          maxMs: 400,
          failureProbability: 0

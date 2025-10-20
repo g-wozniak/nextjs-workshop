@@ -7,7 +7,7 @@ export class GoalsService {
    private readonly goals: Goal[]
 
    constructor() {
-      this.goals = factory(10, GoalEntity)
+      this.goals = factory(8, GoalEntity)
    }
 
    // List sales team goals

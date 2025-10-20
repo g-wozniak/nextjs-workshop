@@ -11,6 +11,7 @@ export const FundPerformanceEntity = (data: Partial<FundPerformance> = {}): Fund
       invested: random(10000, 10000000),
       roi: getRandomInterestRate(),
       investors: random(100, 1000),
-      withdrawals: random(0, 500)
+      withdrawals: random(0, 500),
+      ...data
    }
 }

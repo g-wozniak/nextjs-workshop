@@ -50,7 +50,6 @@ export function notify(
          description: successText
       })
    } else if (res.status !== 200) {
-      console.log(res.payload)
       notification.error({
          message: 'Error',
          ...('message' in res.payload && {description: res.payload.message})

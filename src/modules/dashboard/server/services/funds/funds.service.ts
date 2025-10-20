@@ -4,7 +4,7 @@ import {Fund} from '@/shared/dto/Fund'
 import {FundPerformance} from '@/shared/dto/FundPerformance'
 import {factoryFromIterator} from '@/shared/helpers/randomizer'
 import {fetchData} from '@/shared/helpers/simulator'
-import {groupBy, maxBy} from 'lodash'
+import {groupBy} from 'lodash'
 import moment from 'moment'
 import {FundPerformanceEntity} from '../../entities/FundPerformance'
 
@@ -37,7 +37,7 @@ export class FundsService {
 
    // List of the most popular among users
    public async listMostPopular() {
-      return fetchData(this.funds.toSorted((a, b) => b.popularity - a.popularity).slice(0, 10), {
+      return fetchData(this.funds.toSorted((a, b) => b.popularity - a.popularity).slice(0, 8), {
          minMs: 200,
          maxMs: 400,
          failureProbability: 0
@@ -55,12 +55,24 @@ export class FundsService {
 
    // Get the most recent performance data of the funds
    // Data changes randomly, whenever recalculated by external process
-   public async getCurrentPerformance() {
+   public async getMostRecentPerformance() {
+      let mostRecentRecords: FundPerformance[] = []
       const grouped = groupBy(this.performance, 'fundId')
-      const latestPerformancePerFund = Object.values(grouped).map(
-         (fundGroup) => maxBy(fundGroup, 'metricAt')!
-      )
-      return fetchData(latestPerformancePerFund, {
+      Object.keys(grouped).forEach((fundId) => {
+         const list = grouped[fundId].sort((a, b) => {
+            const dateDiff = new Date(b.metricAt).getTime() - new Date(a.metricAt).getTime()
+            if (dateDiff !== 0) {
+               return dateDiff
+            }
+            const investorDiff = b.investors - a.investors
+            if (investorDiff !== 0) {
+               return investorDiff
+            }
+            return a.withdrawals - b.withdrawals
+         })
+         mostRecentRecords.push(list[0])
+      })
+      return fetchData(mostRecentRecords, {
          minMs: 200,
          maxMs: 400,
          failureProbability: 0

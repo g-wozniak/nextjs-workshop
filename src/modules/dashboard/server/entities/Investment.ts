@@ -7,10 +7,10 @@ import moment from 'moment'
 export const InvestmentEntity = (data: Partial<Investment> = {}): Investment => ({
    id: getRandomID(),
    username: getRandomUsername(),
-   fundId: getRandomID(),
    amount: random(100, 10000),
    investedAt: moment()
       .subtract(random(1, 60), faker.helpers.arrayElement(['minutes', 'hours']))
       .toDate(),
+   fundId: data.fundId ?? getRandomID(),
    ...data
 })
