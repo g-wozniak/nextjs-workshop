@@ -21,7 +21,6 @@ export const LatestTransfer: React.FC<Props> = ({transfer, loading}) => {
    return (
       <Card
          loading={loading}
-         bordered
          style={{
             borderRadius: 12,
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',

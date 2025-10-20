@@ -61,8 +61,8 @@ export const FundsTable: React.FC<Props> = ({data, loading}) => {
 
    return (
       <Fragment>
-         <Title level={4} style={{marginBottom: 16}}>
-            🎵 Top 10 Performing Funds
+         <Title level={3} style={{marginBottom: 16}}>
+            Our ISA Funds
          </Title>
          <Table<Fund>
             rowKey="id"

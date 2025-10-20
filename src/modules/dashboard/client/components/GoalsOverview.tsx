@@ -30,8 +30,8 @@ export const GoalsOverview: React.FC<Props> = ({goals, loading}) => {
             background: '#fafafa'
          }}
       >
-         <Title level={4} style={{marginBottom: 16}}>
-            🎯 Company Goals Overview
+         <Title level={3} style={{marginBottom: 16}}>
+            Company Goals Overview
          </Title>
 
          <Row gutter={[24, 24]}>

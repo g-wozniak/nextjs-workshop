@@ -3,7 +3,7 @@
 import {FundsTable} from '@/dashboard/client/components/FundsTable'
 import {FundsService} from '@/dashboard/server/services/funds/funds.service'
 import {call} from '@/shared/lib/call'
-import {cache} from 'react'
+import React, {cache} from 'react'
 
 const getCachedFunds = cache(async () => {
    const funds = new FundsService()
@@ -16,5 +16,9 @@ export async function FundsSection() {
       return <p>{error.message}</p>
    }
 
-   return <FundsTable data={funds ?? []} />
+   return (
+      <div style={{ padding: '0 30px' }}>
+         <FundsTable data={funds ?? []} />
+      </div>
+   )
 }

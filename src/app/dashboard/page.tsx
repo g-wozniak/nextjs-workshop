@@ -39,7 +39,7 @@ export default async function DashboardPage() {
          <Masthead title="ISA dashboard" />
          <Container>
             {/* === Popular funds section === */}
-            <section style={{ marginBottom: 60 }}>
+            <section>
                <PopularFundsList data={popularFunds} loading={false} />
             </section>
 

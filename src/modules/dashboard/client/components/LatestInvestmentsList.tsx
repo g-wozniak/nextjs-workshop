@@ -22,9 +22,9 @@ export const LatestInvestmentsList: React.FC<Props> = ({investments, funds = [],
    }))
 
    return (
-      <div style={{padding: '16px 0'}}>
-         <Typography.Title level={4} style={{marginBottom: 16}}>
-            💸 Latest Investments
+      <div style={{padding: '0 40px'}}>
+         <Typography.Title level={3} style={{marginBottom: 16}}>
+            Latest Investments
          </Typography.Title>
 
          <List

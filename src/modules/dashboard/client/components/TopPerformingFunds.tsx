@@ -21,9 +21,9 @@ export const TopPerformingFundsList: React.FC<Props> = ({performances, funds, lo
    }))
 
    return (
-      <div style={{padding: '16px 0'}}>
-         <Title level={4} style={{marginBottom: 16}}>
-            🎵 Top 10 Performing Funds
+      <div style={{padding: '0 40px'}}>
+         <Title level={3} style={{marginBottom: 16}}>
+            Best Performing Funds
          </Title>
 
          <List

@@ -15,9 +15,9 @@ interface Props {
 
 export const TransfersList: React.FC<Props> = ({transfers, loading}) => {
    return (
-      <div style={{padding: '16px 0'}}>
-         <Title level={4} style={{marginBottom: 16}}>
-            💰 Latest Transfers
+      <div style={{padding: '0 40px'}}>
+         <Title level={3} style={{marginBottom: 16}}>
+            Latest Transfers
          </Title>
 
          <List
